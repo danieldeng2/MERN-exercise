@@ -29,9 +29,10 @@ app.use('/api/users', usersRouter);
 // If no API routes are hit, send the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'client/build/index.html'));
 });
+
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
