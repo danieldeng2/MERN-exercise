@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const path = require('path');
 
 require("dotenv").config();
 
@@ -24,6 +25,13 @@ const usersRouter = require('./routes/users');
 
 app.use('/api/exercises', exerciseRouter);
 app.use('/api/users', usersRouter);
+
+// If no API routes are hit, send the React app
+app.use(express.static(path.join(__dirname, '../build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
