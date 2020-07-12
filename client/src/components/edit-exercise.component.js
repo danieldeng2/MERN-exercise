@@ -18,7 +18,7 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/api/exercises/" + this.id)
+    fetch("/api/exercises/" + this.id)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
@@ -30,7 +30,7 @@ export default class EditExercise extends Component {
       })
       .catch((err) => console.log(err));
 
-    fetch("http://localhost:5000/api/users/")
+    fetch("/api/users/")
       .then((response) => response.json())
       .then((data) => {
         this.setState({ users: data.map((user) => user.username) });

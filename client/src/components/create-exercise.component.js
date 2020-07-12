@@ -16,7 +16,7 @@ export default class CreateExercise extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/api/users/")
+    fetch("/api/users/")
       .then(response => response.json())
       .then(data => {
         if (data.length > 0) {
@@ -39,7 +39,7 @@ export default class CreateExercise extends Component {
       date: this.state.date,
     };
     console.log(exercise);
-    fetch("http://localhost:5000/api/exercises/", {
+    fetch("/api/exercises/", {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify(exercise),

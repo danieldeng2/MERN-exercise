@@ -14,7 +14,7 @@ export default class CreateUser extends Component {
     const newUser = {
       username: this.state.username,
     };
-    fetch("http://localhost:5000/api/users/", {
+    fetch("/api/users/", {
       headers: { "Content-Type": "application/json" },
       method: 'POST',
       body: JSON.stringify(newUser),

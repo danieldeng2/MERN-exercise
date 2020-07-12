@@ -28,14 +28,14 @@ export default class ExercisesList extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/api/exercises/")
+    fetch("/api/exercises/")
       .then((response) => response.json())
       .then((data) => this.setState({ exercises: data }))
       .catch((err) => console.log(err));
   }
 
   deleteExercise(id) {
-    fetch(`http://localhost:5000/api/exercises/${id}`, { method: "DELETE" })
+    fetch(`/api/exercises/${id}`, { method: "DELETE" })
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
