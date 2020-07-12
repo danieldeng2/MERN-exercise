@@ -50,7 +50,7 @@ export default class EditExercise extends Component {
 
     console.log(exercise);
 
-    fetch("http://localhost:5000/api/exercises/" + this.id, {
+    fetch("/api/exercises/" + this.id, {
       headers: { "Content-Type": "application/json" },
       method: "PUT",
       body: JSON.stringify(exercise),
